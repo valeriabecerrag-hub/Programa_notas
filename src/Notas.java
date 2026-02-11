@@ -1,10 +1,9 @@
 import java.util.Scanner;
     public class Notas {
-
+        static Scanner sc = new Scanner (System.in);
         public static void main(String[] args) {
-            Scanner sc = new Scanner (System.in);
-            System.out.println ("Ingrese el nombre del estudiante");
-            String nombre = sc.nextLine();
+
+            String nombre = leerNombre();
             System.out.println("Ingrese la primera nota");
             double nota1= sc.nextDouble();
             System.out.println("Ingrese la segunda nota");
@@ -23,6 +22,11 @@ import java.util.Scanner;
         }
         public static double calcularPromedio (double nota1, double nota2, double nota3) {
             return (nota1+nota2+nota3)/3;
+        }
+
+        public static String leerNombre(){
+            System.out.println ("Ingrese el nombre del estudiante");
+            return sc.nextLine();
         }
     }
 
