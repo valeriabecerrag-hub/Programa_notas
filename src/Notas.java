@@ -1,16 +1,15 @@
 import java.util.Scanner;
+    public class Notas {
+        static Scanner sc = new Scanner (System.in);
+        public static void main(String[] args) {
 
-public class Notas {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Ingrese el nombre del estudiante:");
-        String nombre = sc.nextLine();
-
-        double nota1 = leerNota(sc, "Ingrese la primera nota:");
-        double nota2 = leerNota(sc, "Ingrese la segunda nota:");
-        double nota3 = leerNota(sc, "Ingrese la tercera nota:");
+            String nombre = leerNombre();
+            System.out.println("Ingrese la primera nota");
+            double nota1= sc.nextDouble();
+            System.out.println("Ingrese la segunda nota");
+            double nota2= sc.nextDouble();
+            System.out.println("Ingrese la tercera nota");
+            double nota3= sc.nextDouble();
 
         double promedio = calcularPromedio(nota1, nota2, nota3);
 
@@ -28,22 +27,30 @@ public class Notas {
         return (nota1 + nota2 + nota3) / 3;
     }
 
-    public static double leerNota(Scanner sc, String mensaje) {
-        double nota;
-        do {
-            System.out.println(mensaje);
-            while (!sc.hasNextDouble()) {
-                System.out.println("Error: ingrese un número válido.");
-                sc.next();
-            }
-            nota = sc.nextDouble();
+        public static double leerNota(Scanner sc, String mensaje) {
+            double nota;
+            do {
+                System.out.println(mensaje);
+                while (!sc.hasNextDouble()) {
+                    System.out.println("Error: ingrese un número válido.");
+                    sc.next();
+                }
+                nota = sc.nextDouble();
 
-            if (nota < 0 || nota > 5) {
-                System.out.println("La nota debe estar entre 0 y 5.");
-            }
-        } while (nota < 0 || nota > 5);
+                if (nota < 0 || nota > 5) {
+                    System.out.println("La nota debe estar entre 0 y 5.");
+                }
+            } while (nota < 0 || nota > 5);
 
-        return nota;
+            return nota;
+        }
+
+
+        public static String leerNombre(){
+            System.out.println ("Ingrese el nombre del estudiante");
+            return sc.nextLine();
+        }
     }
-}
+
+
 
